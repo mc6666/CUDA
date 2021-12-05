@@ -67,9 +67,9 @@ int main(void) {
 	// 列印結果
 	printf("Vector addition on GPU \n");
 	for (int i = 0; i < N; i++) {
-		//printf(" %d + %d = %d\n", h_a[i], h_b[i], h2_c[i]);
+		printf(" %d + %d = %d\n", h_a[i], h_b[i], h2_c[i]);
 	}
-	//Free up memory
+	// 釋放記憶體
 	cudaFree(d_a);
 	cudaFree(d_b);
 	cudaFree(d_c);
