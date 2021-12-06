@@ -8,6 +8,7 @@
 
 __global__ void vectorAdd(int* d_a, int* d_b, int* d_c) {
 	// 使用第幾個執行緒計算 
+	// blockIdx.x：第幾個block，blockDim.x：block內的執行緒數量
 	int tid = threadIdx.x + blockIdx.x * blockDim.x;
 	printf("tid = %d\n", tid);
 	d_c[tid] = d_a[tid] + d_b[tid];
