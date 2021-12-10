@@ -21,21 +21,8 @@ __global__ void gpu_inner_product(float* d_a, float* d_b, float* d_c)
 		// 第一個輸入矩陣的【列】與第二個輸入矩陣的【行】相乘
 		d_c[row * B_COLUMN_SIZE + col] += d_a[row * A_COLUMN_SIZE + k] * d_b[k * B_COLUMN_SIZE + col];
 		//printf("result=%d, A=%d, B=%d\n", row * B_COLUMN_SIZE + col, row * A_COLUMN_SIZE + k, k * B_COLUMN_SIZE + col);
-		//__syncthreads();
 	}
 
-	////Defining Shared Memory
-	//__shared__ float shared_a[TILE_SIZE][TILE_SIZE];
-	//__shared__ float shared_b[TILE_SIZE][TILE_SIZE];
-	//col = TILE_SIZE * blockIdx.x + threadIdx.x;
-	//row = TILE_SIZE * blockIdx.y + threadIdx.y;
-
-
-	//		for (int j = 0; j < A_COLUMN_SIZE; j++)
-	//			d_c[row * size + col] += shared_a[threadIdx.x][j] * shared_b[j][threadIdx.y];
-	//		__syncthreads();
-	//	}
-	//}
 }
 
 __global__ void gpu_inner_product_shared(float* d_a, float* d_b, float* d_c)
